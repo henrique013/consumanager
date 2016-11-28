@@ -1,0 +1,9 @@
+.form-group.dt-selecionada {
+  margin-bottom: 25px;
+}
+.form-group.dt-selecionada .input-group {
+  margin: 0 0 5px;
+}
+.panel-body {
+  height: 150px;
+}

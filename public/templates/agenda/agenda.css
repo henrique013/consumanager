@@ -1,0 +1,34 @@
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.clear:before,
+.clear:after {
+  content: " ";
+  display: table;
+}
+.clear:after {
+  clear: both;
+}
+.hide {
+  display: none;
+}
+.form-group.dt-selecionada {
+  margin-bottom: 25px;
+}
+.form-group.dt-selecionada .input-group {
+  margin: 0 0 5px;
+}
+.panel .panel-body p {
+  font-size: 28px;
+  color: #d9534f;
+  margin: 0;
+}
+.panel .panel-heading {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}

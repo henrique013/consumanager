@@ -1,0 +1,87 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: henrique
+ * Date: 28/08/16
+ * Time: 14:11
+ */
+
+namespace App\Route\Agenda;
+
+
+use App\Util\Handle;
+use App\Util\Handle\GET;
+use Slim\Http\Request;
+use Slim\Http\Response;
+
+
+class Consultorio extends Handle
+{
+    use GET;
+
+
+    function get(Request $request, Response $response)
+    {
+        /** @var \Twig_Environment $twig */
+        /** @var \PDO $conn */
+
+
+        $coID = $request->getAttribute('co_id');
+        $data = $data = $request->getAttribute('data');
+
+
+        $sql = "
+            SELECT
+              c.id AS id
+              ,c.nome AS nome
+            FROM tb_consultorio c
+            WHERE
+              c.id = :id
+        ";
+        $conn = $this->ci->get('PDO');
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue('id', $coID);
+        $stmt->execute();
+
+
+        $row = $stmt->fetch();
+        if (!$row)
+        {
+            return $response->withRedirect('/agenda');
+        }
+        $this->context['consultorio'] = $row;
+
+
+        $sql = "
+            SELECT
+              to_char(h.horas, 'HH24:MI') AS horas
+              ,rc.nome AS consulta_responsavel
+              ,p.nome AS paciente_nome
+              ,p.num_prontuario AS paciente_prontuario
+            FROM tb_consultorio c
+            JOIN tb_horario h ON (h.id_consultorio = c.id)
+            LEFT JOIN tb_consulta ct ON (ct.id_horario = h.id AND ct.dt_consulta = :dt_consulta)
+            LEFT JOIN tb_resp_consulta rc ON (rc.id = ct.id_resp_consulta)
+            LEFT JOIN tb_paciente p ON (p.id = ct.id_paciente)
+            WHERE
+              c.id = :co_id
+            ORDER BY
+              h.horas
+        ";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue('dt_consulta', $data);
+        $stmt->bindValue('co_id', $coID);
+        $stmt->execute();
+
+
+        $this->context['horarios'] = $stmt->fetchAll();
+
+
+        $twig = $this->ci->get('twig');
+        $view = $twig->render('templates/agenda/consultorio/consultorio.twig', $this->context);
+        $response->write($view);
+
+
+        return $response;
+    }
+}
