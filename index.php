@@ -1,5 +1,5 @@
 <?php
-
+echo phpinfo();exit;
 if (PHP_SAPI == 'cli-server')
 {
     // To help the built-in PHP dev server, check if the request was actually for
@@ -16,26 +16,23 @@ if (PHP_SAPI == 'cli-server')
 require __DIR__ . '/vendor/autoload.php';
 
 // php.ini settings
-require __DIR__ . '/src/phpini.php';
-
-// Set environment settings
-require __DIR__ . '/src/environment.php';
+require __DIR__ . '/app/phpini.php';
 
 // Errors/Exceptions handler
 (new Whoops\Run())->register();
 
 // Instantiate the app
-$settings = require __DIR__ . '/src/settings.php';
+$settings = require __DIR__ . '/app/settings.php';
 $app = new \Slim\App($settings);
 
 // Set up dependencies
-require __DIR__ . '/src/dependencies.php';
+require __DIR__ . '/app/dependencies.php';
 
 // Register middleware
-require __DIR__ . '/src/middlewares.php';
+require __DIR__ . '/app/middlewares.php';
 
 // Register routes
-require __DIR__ . '/src/routes.php';
+require __DIR__ . '/app/routes.php';
 
 
 // Run app

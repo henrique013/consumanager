@@ -1,5 +1,5 @@
 .idea/
-.env
+.vagrant
 vendor
 node_modules
 public/bower

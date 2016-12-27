@@ -9,16 +9,15 @@
     "php": ">=5.5.0",
     "slim/slim": "~3.1",
     "filp/whoops": "~2.1",
-    "vlucas/phpdotenv": "^2.3",
     "twig/twig": "~1.24",
     "respect/validation": "^1.1",
     "lcobucci/jwt": "^3.2"
   },
   "autoload": {
     "psr-4": {
-      "App\\Middleware\\": "src/middlewares",
-      "App\\Route\\": "src/routes",
-      "App\\Util\\": "src/util"
+      "App\\Middleware\\": "app/middlewares",
+      "App\\Route\\": "app/routes",
+      "App\\Util\\": "app/util"
     }
   }
 }
