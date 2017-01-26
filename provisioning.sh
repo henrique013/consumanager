@@ -5,6 +5,10 @@
 #          Virtual Machine Setup
 # ---------------------------------------
 
+sudo locale-gen pt_BR.UTF-8
+sudo update-locale LANG="pt_BR.UTF-8"
+sudo update-locale LANGUAGE="pt_BR:pt:en"
+
 apt-get update
 apt-get install -y htop
 apt-get install -y curl

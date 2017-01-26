@@ -87,12 +87,14 @@ class Usuario extends Handle
               nome
               ,email
               ,hash_senha
+              ,id_tipo
             )
             VALUES
             (
               :nome
               ,:email
               ,:hash_senha
+              ,:id_tipo
             )
         ";
         $conn = $this->ci->get('PDO');
@@ -100,6 +102,7 @@ class Usuario extends Handle
         $stmt->bindValue('nome', $p['nome']);
         $stmt->bindValue('email', $p['email']);
         $stmt->bindValue('hash_senha', $p['senha']);
+        $stmt->bindValue('id_tipo', 2); //TODO: implementar!
         $stmt->execute();
 
 

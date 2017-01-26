@@ -9,9 +9,9 @@ return [
         'PDO' => [
             'host' => 'localhost',
             'port' => '5432',
-            'user' => 'root',
-            'password' => '123',
-            'dbname' => 'clinica',
+            'user' => 'postgres',
+            'password' => 'postgres',
+            'dbname' => 'consumanager',
         ],
 
 
