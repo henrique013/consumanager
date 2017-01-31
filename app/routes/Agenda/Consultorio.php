@@ -56,7 +56,6 @@ class Consultorio extends Handle
             SELECT
               to_char(h.horas, 'HH24:MI') AS horas
               ,rc.nome AS consulta_responsavel
-              ,sc.nome AS consulta_status
               ,p.nome AS paciente_nome
               ,p.num_prontuario AS paciente_prontuario
             FROM tb_consultorio c
@@ -64,7 +63,6 @@ class Consultorio extends Handle
             LEFT JOIN tb_consulta ct ON (ct.id_horario = h.id AND ct.dt_consulta = :dt_consulta)
             LEFT JOIN tb_resp_consulta rc ON (rc.id = ct.id_resp_consulta)
             LEFT JOIN tb_paciente p ON (p.id = ct.id_paciente)
-            LEFT JOIN tb_status_consulta sc ON (sc.id = ct.id_status_consulta)
             WHERE
               c.id = :co_id
             ORDER BY
