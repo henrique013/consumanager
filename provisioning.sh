@@ -5,11 +5,13 @@
 #          Virtual Machine Setup
 # ---------------------------------------
 
-sudo locale-gen pt_BR.UTF-8
-sudo update-locale LANG="pt_BR.UTF-8"
-sudo update-locale LANGUAGE="pt_BR:pt:en"
+locale-gen pt_BR.UTF-8
+update-locale LANG="pt_BR.UTF-8"
+update-locale LANGUAGE="pt_BR:pt:en"
 
-apt-get update
+apt-get autoremove
+curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+
 apt-get install -y htop
 apt-get install -y curl
 apt-get install -y git
@@ -17,8 +19,10 @@ apt-get install -y apache2
 apt-get install -y php7.0 libapache2-mod-php7.0 php7.0-pgsql php-xdebug
 apt-get install -y composer
 apt-get install -y postgresql-9.5
-apt-get install -y nodejs-legacy
+apt-get install -y nodejs
 apt-get install -y npm
+
+apt-get autoremove -y
 
 
 # ---------------------------------------
@@ -76,8 +80,8 @@ service apache2 restart
 
 cd /var/www/public
 
-npm install gulp-cli@1.2.2 --global
-npm install bower@1.8.0 --global
+npm install gulp-cli --g
+npm install bower --g
 
 npm install
 bower install
