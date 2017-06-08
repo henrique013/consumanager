@@ -9,11 +9,7 @@ $(function () {
 
 
             $modal.find('#ipt-pac-nascimento').mask('00/00/0000', {
-                clearIfNotMatch: true,
-                onKeyPress: function (val, event, field) {
-                    // evita que o usuário insira manualmente a data
-                    $(field).val('');
-                }
+                clearIfNotMatch: true
             });
 
 
