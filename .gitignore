@@ -1,5 +1,4 @@
 .idea/
-.vagrant
-vendor
-node_modules
-public/bower
+deploy/.vagrant
+src/vendor
+src/node_modules

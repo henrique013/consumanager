@@ -1,0 +1,26 @@
+{
+  "name": "consumanager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gulp deploy"
+  },
+  "author": "SOLID Sistemas <contato.solidsistemas@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-copy": "^1.0.1",
+    "gulp-less": "^3.1.0"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "bootstrap-typeahead": "https://github.com/biggora/bootstrap-ajax-typeahead.git#0.0.5",
+    "bottlejs": "^1.4.0",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
+    "font-awesome": "^4.6.3",
+    "jquery": "^2.2.4",
+    "jquery-mask-plugin": "^1.14.0",
+    "underscore": "^1.8.3"
+  }
+}

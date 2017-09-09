@@ -1,0 +1,15 @@
+x refatorar os provisioners
+x transferir dependências do bower para o yarn
+x melhorar a estrutura de pastas do projeto
+x criar tasks no gulp para o deploy das libs do yarn na pasta /public
+x alterar as url's que apontam para a pasta do bower
+x remover arquivos bower
+x remover provisioning.sh
+x fazer bkp do banco do server
+x subir o bkp do banco localmente
+- implementar as alterações
+x criar um host de teste
+
+- depois de cadastrar (usuário, paciente, ...) o modal continua aberto
+- não aparece o nome de quem está logado no menu superior
+- o n° do prontuário está voltando depois q vc apaga um paciente
