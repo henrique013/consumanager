@@ -8,5 +8,5 @@ echo "==========================================================================
 
 cd /var/www/public
 
-yarn install --non-interactive
-composer install
+php composer.phar install
+npm install --no-bin-links
